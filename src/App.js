@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import Loading from "./components/loading";
+import Tours from "./components/tours";
+import useFetch from "./hooks/usefetch";
+
+const apiUrl = "https://course-api.com/react-tours-project";
 
 function App() {
+  const { loading, products, setProducts } = useFetch(apiUrl);
+  const removeItem = (id) => {
+    const newProducts = products.filter((p) => p.id !== id);
+    setProducts(newProducts);
+  };
+
+  if (loading) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <Tours products={products} removeItem={removeItem} />
+    </main>
   );
 }
 
