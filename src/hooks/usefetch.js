@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
-
-export default function useFetch(url) {
+let getData;
+export function useFetch(url) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const getData = useCallback(async () => {
+  getData = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetch(url);
@@ -18,7 +18,11 @@ export default function useFetch(url) {
 
   useEffect(() => {
     getData();
-  }, [url, getData]);
+  }, [url]);
 
   return { loading, products, setProducts };
 }
+
+export const refresh = () => {
+  getData();
+};

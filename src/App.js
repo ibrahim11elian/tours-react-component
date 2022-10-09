@@ -1,6 +1,7 @@
 import Loading from "./components/loading";
 import Tours from "./components/tours";
-import useFetch from "./hooks/usefetch";
+import ZeroTours from "./components/zero_tours";
+import { useFetch } from "./hooks/usefetch";
 
 const apiUrl = "https://course-api.com/react-tours-project";
 
@@ -15,6 +16,13 @@ function App() {
     return (
       <>
         <Loading />
+      </>
+    );
+  }
+  if (products.length === 0) {
+    return (
+      <>
+        <ZeroTours />
       </>
     );
   }
