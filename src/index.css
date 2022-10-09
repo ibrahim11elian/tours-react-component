@@ -30,7 +30,7 @@
   --clr-grey-10: hsl(210, 36%, 96%);
   --clr-white: #fff;
   --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-red-light: rgb(227, 85, 85);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
@@ -134,17 +134,18 @@ p {
 }
 
 .btn {
-  background: var(--clr-primary-5);
+  background: transparent;
   display: inline-block;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
   text-transform: capitalize;
-  color: var(--clr-white);
+  color: var(--clr-red-light);
   letter-spacing: var(--spacing);
-  border-color: transparent;
+  border-color: var(--clr-red-light);
   cursor: pointer;
   margin-top: 2rem;
   font-size: 1.2rem;
+  width: 13rem;
 }
 
 /* tours list */
@@ -212,7 +213,7 @@ p {
 }
 
 .tour .info .title .price {
-  color: var(--clr-primary-3);
+  color: var(--clr-primary-5);
 }
 
 .tour .info .about {
@@ -221,21 +222,20 @@ p {
 }
 
 .tour .info .btn-read {
-  color: var(--clr-primary-2);
+  color: var(--clr-primary-3);
   border: none;
   font-size: 1rem;
 }
 
 .tour .btn:hover {
   background: transparent;
-  color: var(--clr-black);
-  border: 2px solid var(--clr-black);
+  color: var(--clr-red-dark);
+  border: 2px solid var(--clr-red-dark);
   transition: var(--transition);
   -webkit-transition: var(--transition);
   -moz-transition: var(--transition);
   -ms-transition: var(--transition);
   -o-transition: var(--transition);
-  position: relative;
 }
 
 .loading {
